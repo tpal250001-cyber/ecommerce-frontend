@@ -38,7 +38,7 @@ export default function CreateProduct(){
     
       e.preventDefault()
    
-   const response =    await axios.post("http://localhost:3001/api/auth/product",{
+   const response =    await axios.post("https://ecommerce-backend-juke.onrender.com/api/auth/product",{
   title,
   price,
   description,

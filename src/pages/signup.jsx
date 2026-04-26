@@ -20,7 +20,7 @@ export default function Signup(){
    const handleSubmit = async(e)=>{
     e.preventDefault();
 
-    const response = await axios.post("http://localhost:3001/api/auth/signup",{
+    const response = await axios.post("https://ecommerce-backend-juke.onrender.com/api/auth/signup",{
         
         email,name,password  
       })

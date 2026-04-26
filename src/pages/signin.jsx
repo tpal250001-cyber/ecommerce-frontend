@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
    const handleSubmit = async(e)=>{
     e.preventDefault();
 
-    const response = await axios.post("http://localhost:3001/api/auth/login",{
+    const response = await axios.post("https://ecommerce-backend-juke.onrender.com/api/auth/login",{
         
         email,
         password  

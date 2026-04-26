@@ -12,7 +12,7 @@ export default function Productdetails(){
 
   async function loadproducts(){
 
- const response =  await axios.get("http://localhost:3001/api/auth/getpd")
+ const response =  await axios.get("https://ecommerce-backend-juke.onrender.com/api/auth/getpd")
        const Pd = response.data.products.find((p) =>p._id === id)
        setproducts(Pd)
    }

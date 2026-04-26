@@ -10,7 +10,7 @@ export default function Home() {
 
   async function loadproducts(){
   try {
-   const res =  await axios.get(`http://localhost:3001/api/auth/getpd?search=${search}&category=${category}`)
+   const res =  await axios.get(`https://ecommerce-backend-juke.onrender.com/api/auth/getpd?search=${search}&category=${category}`)
      setProducts(res.data.products)
   }catch(error){
     console.log("erroe",error)
@@ -27,7 +27,7 @@ if(!userId){
  alert("please log in to add itmms to your card")
   return
 }
-const res = await axios.post("http://localhost:3001/api/auth/cart",{productId,userId})
+const res = await axios.post("https://ecommerce-backend-juke.onrender.com/api/auth/cart",{productId,userId})
     console.log(res.data.card)
 const total = res.data.card?.items?.reduce(
    (sum,item) => sum + item.productId.price * item.quantity,0)

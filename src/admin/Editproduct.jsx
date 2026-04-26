@@ -33,7 +33,7 @@ useEffect(()=>{
 
 async function handlesubmit(e){
     e.preventDefault()
-   await axios.put(`http://localhost:3001/api/auth/update/${id}`,form)
+   await axios.put(`https://ecommerce-backend-juke.onrender.com/api/auth/update/${id}`,form)
 
    navigate("/addlist")
 }

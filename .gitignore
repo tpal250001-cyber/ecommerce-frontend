@@ -6,7 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-git remote add origin https://github.com/tpal250001-cyber/ecommerce
 node_modules
 dist
 dist-ssr

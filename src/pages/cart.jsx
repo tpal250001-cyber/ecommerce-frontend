@@ -7,7 +7,7 @@ export function Cart() {
 
   const loadcart = async () => {
     if (!userId) return;
-    const res = await axios.get(`http://localhost:3001/api/auth/getcard/${userId}`)
+    const res = await axios.get(`https://ecommerce-backend-juke.onrender.com/api/auth/getcard/${userId}`)
     setCart(res.data.cart)
   }
 
@@ -16,7 +16,7 @@ export function Cart() {
   }, [])
 
   const removeItem = async (productId) => {
-    await axios.post(`http://localhost:3001/api/auth/deleteitem`, { productId, userId })
+    await axios.post(`https://ecommerce-backend-juke.onrender.com/api/auth/deleteitem`, { productId, userId })
     loadcart()
     //window.dispatchEvent(new Event("cartupdated"))
   }
@@ -26,7 +26,7 @@ export function Cart() {
       await removeItem(productId)
       return
     }
-    await axios.post(`http://localhost:3001/api/auth/updateqty`, { productId, userId, quantity })
+    await axios.post(`https://ecommerce-backend-juke.onrender.com/api/auth/updateqty`, { productId, userId, quantity })
     loadcart()
     //window.dispatchEvent(new Event("cartupdated"))
   }

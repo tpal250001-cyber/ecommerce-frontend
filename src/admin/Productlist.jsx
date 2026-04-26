@@ -11,7 +11,7 @@ import axios from "axios";
   async function Loadproducts(){
       try{
     
-     const response = await axios.get("http://localhost:3001/api/auth/getpd")
+     const response = await axios.get("https://ecommerce-backend-juke.onrender.com/api/auth/getpd")
     console.log(response.data)
      setproduct(response.data.products)
   } catch(error){
@@ -21,7 +21,7 @@ import axios from "axios";
   }
 async function Deletepd(id) {
     
-  await axios.delete(`http://localhost:3001/api/auth/delete/${id}`)
+  await axios.delete(`https://ecommerce-backend-juke.onrender.com/api/auth/delete/${id}`)
   alert("product delelte succesfully");
 Loadproducts()
 }
