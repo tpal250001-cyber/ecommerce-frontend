@@ -15,7 +15,7 @@ const[userId , setuserId] = useState(localStorage.getItem("userId"))
       console.log(userId)
      if(!userId) return setcartcount(0);
     try{
-     const res = await axios.get(`http://localhost:3001/api/auth/getcard/${userId}`)
+     const res = await axios.get(`https://ecommerce-backend-juke.onrender.com/api/auth/getcard/${userId}`)
      const total = res.data.items.reduce(
       (sum,item) => sum+ item.quantity, 0);
       console.log(total)

@@ -14,7 +14,7 @@ const allowfields=["title","price","description","category","images","stock"]
 
  async function loadproduct(){
 
-const res = await axios.get("http://localhost:3001/api/auth/getpd")
+const res = await axios.get("https://ecommerce-backend-juke.onrender.com/api/auth/getpd")
 console.log(res.data)
 const product = res.data.products.find((p) => p._id.toString() === id.toString());
 console.log(id)
