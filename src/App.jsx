@@ -16,25 +16,29 @@ return(
  <Outlet />
  </div>
 )}
-const router = createBrowserRouter([
-{
-  path:"/",
-  element :<Layout />,
-  children :[
-{path:"/signup" , element:<Signup />  },
-    { path:"/signin",  element:<Signin />  },
-    { path :"/home", element :<Home /> },
-   {  path : "/add" , element : <CreateProduct />  },
-    {  path : "/addlist" , element : <Productlist />  },
-    {  path : "/editlist/:id"  ,element : <EditProduct/> },
-    {  path : "/products/:id" , element :<Productdetails />  },
-    {  path : "/cart" , element :<Cart />  }
- ]
-}  ])
-export default function App(){
-
-return <RouterProvider router={router}  />
+export default function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route  element={<Layout />}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/signin" element={<Signin />} />
+                    <Route path="/add" element={<CreateProduct />} />
+                    <Route path="/addlist" element={<Productlist />} />
+                    <Route path="/editlist/:id" element={<EditProduct />} />
+                    <Route path="/products/:id" element={<Productdetails />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="*" element={<Home />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    )
 }
+
+
+
 /*function App() {
  
 
