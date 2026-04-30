@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function Cart() {
   const userId = localStorage.getItem("userId");
   const [cart, setCart] = useState(null);
+  const navigate = useNavigate()
 
   const loadcart = async () => {
     if (!userId) return;
@@ -89,15 +91,22 @@ export function Cart() {
                   onClick={() => removeItem(item.productId._id)}
                   className="text-red-500"
                 >remove</button>
+             
+              <button onClick = {()=>{
+                   navigate('/address')
+                   }}>procced to cart</button>
               </div>
+                    
+             
+
             ))}
           </div>
         )}
 
         <div className="text-right mt-4">
-          <h2 className="text-xl font-bold">Total : ${total.toFixed(2)}</h2>
+          <h2 className="text-xl font-bold">Total : Rupee:{total.toFixed(2)}</h2>
         </div>
-
+  
       </div>
     </div>
   )

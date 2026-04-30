@@ -9,7 +9,9 @@ import EditProduct from './admin/Editproduct'
 import Productdetails from './pages/Productdetails'
 import  Navbar  from './components/Nvabar'
 import { Cart } from './pages/cart'
- function Layout(){
+import Address from './pages/address'
+import Addresscheck from './pages/addresscheck'
+function Layout(){
 return(
   <div>
  <Navbar />,
@@ -30,7 +32,10 @@ export default function App() {
                     <Route path="/editlist/:id" element={<EditProduct />} />
                     <Route path="/products/:id" element={<Productdetails />} />
                     <Route path="/cart" element={<Cart />} />
+                    <Route path="/addresscheck" element={<Addresscheck/>} />
+                    <Route path="/address" element={<Address/>} />                   
                     <Route path="*" element={<Home />} />
+
                 </Route>
             </Routes>
         </BrowserRouter>

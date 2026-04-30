@@ -85,7 +85,7 @@ const total = res.data.card?.items?.reduce(
       
        <button onClick ={() => addTocart(product._id) }
            className="mt-2 w-full bg-blue-500"
-           
+          
           >add to cart</button>
        </div>
  )
