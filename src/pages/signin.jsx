@@ -29,8 +29,9 @@ import { useNavigate } from "react-router-dom";
       })
     
       localStorage.setItem("token",response.data.token)
+      console.log(response.data)
        localStorage.setItem("userId",response.data.id)
-      
+     
    setMsg(response.data.message)
       
    setTimeout(()=>{
@@ -38,22 +39,15 @@ import { useNavigate } from "react-router-dom";
    },1000) 
 
     }
- 
-    return <div>
-<div className="">
-<div className="">
-<h2 className=""> Create Account </h2>
- 
+ /*return( 
+<div className="min-h-screen bg-gray-100 flex items-center ">
+<h2 className="bg bg-white p-8 rounded-2xl shadow-lg w-full max-w-md"> Create Account </h2>
    { (<div className=" ">
-   
-   
     {msg}
-   
    </div>  )}
- 
  <form onSubmit={handleSubmit} className="">
-   
-   <div className="pt-5">
+  
+   <div className="pt-4  border-2 w-20">
     <input name="email"
       placeholder="enter email"
      
@@ -62,34 +56,71 @@ import { useNavigate } from "react-router-dom";
       }}
       className=""
       required
-    
     />
    </div>
-   <div className="pt-5 border-2 w-3">
+   <div className="pt-4 border-2">
     <input name="password"
       placeholder="enter password"
-  
       onChange = {(e)=>{
     setPassword(e.target.value)
       }}
       className=""
       required
-    
-    />
+     />
     </div>
     <button type="submit" 
       className=""
     > Login</button>
-   
- </form>
- 
- </div>
- </div>
-  
-    
-    
-    
-    
-    
+   </form>
+ </div>)
+}*/
+
+return (
+  <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+      
+      <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
+        Create Account
+      </h2>
+
+      {msg && (
+        <div className="bg-green-100 text-green-700 text-center p-2 rounded mb-4">
+          {msg}
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+        
+        <div>
+          <input
+            name="email"
+            placeholder="Enter Email"
+            onChange={(e) => setemail(e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+
+        <div>
+          <input
+            name="password"
+            type="password"
+            placeholder="Enter Password"
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition duration-200"
+        >
+          Login
+        </button>
+
+      </form>
     </div>
-}
+  </div>
+)
+ }

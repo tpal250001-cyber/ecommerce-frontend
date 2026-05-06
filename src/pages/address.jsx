@@ -31,7 +31,7 @@ function handlechange(e){
     })
   alert("address saved")
   }
-  return(
+  /*return(
   <div>
 {Object.keys(form).map((key)=> {
   return (
@@ -61,6 +61,40 @@ function handlechange(e){
 
 
 
+)*/
+
+
+return (
+  <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+    <div className="bg-white rounded-2xl shadow-lg w-full max-w-lg p-8">
+
+      <h2 className="text-2xl font-bold text-gray-800 mb-2">Delivery Address</h2>
+      <p className="text-gray-500 text-sm mb-6">Enter your shipping details below</p>
+
+      <div className="space-y-4">
+        {Object.keys(form).map((key) => (
+          <input
+            key={key}
+            type="text"
+            name={key}
+            placeholder={key}
+            onChange={handlechange}
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+          />
+        ))}
+      </div>
+
+      <button
+        onClick={() => { savaddress(); navigate('/addresscheck') }}
+        className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition text-lg"
+      >
+        Save & Continue
+      </button>
+
+    </div>
+  </div>
 )
+
+
 
 }
