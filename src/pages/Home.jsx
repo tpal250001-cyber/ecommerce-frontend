@@ -10,8 +10,15 @@ export default function Home() {
 
   async function loadproducts(){
   try {
+    
    const res =  await axios.get(`https://ecommerce-backend-juke.onrender.com/api/auth/getpd?search=${search}&category=${category}`)
      setProducts(res.data.products)
+
+    if(!res){
+      return(
+        <div>...loading</div>
+      )
+    } 
   }catch(error){
     console.log("erroe",error)
   }
@@ -24,7 +31,7 @@ const addTocart = async(productId) => {
 const userId = localStorage.getItem("userId");
 
 if(!userId){
- alert("please log in to add itmms to your card")
+ alert("Please Login to Add items in Card")
   return
 }
 const res = await axios.post("https://ecommerce-backend-juke.onrender.com/api/auth/cart",{productId,userId})
