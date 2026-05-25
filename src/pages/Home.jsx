@@ -14,18 +14,19 @@ export default function Home() {
    const res =  await axios.get(`https://ecommerce-backend-juke.onrender.com/api/auth/getpd?search=${search}&category=${category}`)
      setProducts(res.data.products)
 
-    if(!res){
-      return(
-        <div>...loading</div>
-      )
-    } 
+    
   }catch(error){
-    console.log("erroe",error)
+    console.log("error",error)
   }
   }
    useEffect(()=>{
     loadproducts()
    },[search,category])
+   if(!products){
+    return <div>
+      ...loading
+    </div>
+   }
 
 const addTocart = async(productId) => {
 const userId = localStorage.getItem("userId");
@@ -105,7 +106,13 @@ const total = res.data.card?.items?.reduce(
     
     
 )  */
-   
+ 
+   if(!products){
+  return (
+   <div>...loading</div>
+
+  )
+   }
    
    return (
   <div className="min-h-screen bg-gray-50">
@@ -134,7 +141,8 @@ const total = res.data.card?.items?.reduce(
         </select>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
           <div key={product._id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border border-gray-100">
             <Link to={`/products/${product._id}`}>
