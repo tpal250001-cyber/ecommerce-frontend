@@ -4,29 +4,26 @@ import { useState ,useEffect} from 'react'
 export default function Home() {
 
   const navigate = useNavigate()
+  const [loading,setloading] = useState(false)
    const [products,setProducts] = useState([])
    const [search ,setsearch] = useState("")
    const [category,setcategory] = useState("")
 
   async function loadproducts(){
   try {
-    
+    setloading(true)
    const res =  await axios.get(`https://ecommerce-backend-juke.onrender.com/api/auth/getpd?search=${search}&category=${category}`)
      setProducts(res.data.products)
-
-    
-  }catch(error){
+   }catch(error){
     console.log("error",error)
   }
+setloading(false)
   }
    useEffect(()=>{
     loadproducts()
    },[search,category])
-   if(!products){
-    return <div>
-      ...loading
-    </div>
-   }
+   
+   
 
 const addTocart = async(productId) => {
 const userId = localStorage.getItem("userId");
@@ -107,7 +104,7 @@ const total = res.data.card?.items?.reduce(
     
 )  */
  
-   if(!products){
+   if(loading){
   return (
    <div>...loading</div>
 
@@ -144,7 +141,7 @@ const total = res.data.card?.items?.reduce(
 
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
-          <div key={product._id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border border-gray-100">
+         <div key={product._id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border border-gray-100">
             <Link to={`/products/${product._id}`}>
               <img
                 src={product.images}
